@@ -15,17 +15,17 @@ export let options = {
 export default function () {
   const url = 'wss://feeds.xcp.dev.maqehq.com/market';
   const params = { tags: { my_tag: 'hello' } };
- 
+
   const res = ws.connect(url, params, function (socket) {
     socket.on('open', () => console.log(`VU ${__VU} connected`));
     socket.on('close', () => console.log(`VU ${__VU} disconnected`));
     // socket.on('message', function (message){
     //     let msg = JSON.parse(message);
-        
+
     //       console.log(`VU ${__VU} symbol: ${msg.symbol} price: ${msg.price}`)
     //   });
     socket.setTimeout(function () {
-    //   console.log('5 mins passed, closing the socket');
+    //   console.log('5 sec passed, closing the socket');
     socket.close();
     } ,5000);
 });
