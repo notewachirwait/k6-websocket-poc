@@ -25,7 +25,7 @@ export default function () {
     //       console.log(`VU ${__VU} symbol: ${msg.symbol} price: ${msg.price}`)
     //   });
     socket.setTimeout(function () {
-    //   console.log('5 sec passed, closing the socket');
+      console.log('5 sec passed, closing the socket');
     socket.close();
     } ,5000);
 });
