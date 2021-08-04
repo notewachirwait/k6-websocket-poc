@@ -13,7 +13,7 @@ export let options = {
     ],
   };
 export default function () {
-  const url = 'wss://feeds.xcp.dev.maqehq.com/market';
+  const url = 'wss://wsdesktop.bitkub.com/websocket-market-api/1';
   const params = { tags: { my_tag: 'hello' } };
 
   const res = ws.connect(url, params, function (socket) {
@@ -22,7 +22,7 @@ export default function () {
     // socket.on('message', function (message){
     //     let msg = JSON.parse(message);
 
-    //       console.log(`VU ${__VU} symbol: ${msg.symbol} price: ${msg.price}`)
+    //       console.log(`VU ${__VU} baseVolume: ${msg.data.baseVolume} change: ${msg.data.change}`)
     //   });
     socket.setTimeout(function () {
       console.log('5 sec passed, closing the socket');
