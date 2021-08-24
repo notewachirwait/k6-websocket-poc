@@ -26,9 +26,9 @@ export default function () {
     socket.on('close', () => console.log(`VU ${__VU} disconnected`));
     socket.on('message', function (message){
         let msg = JSON.parse(message);
-          console.log(`VU ${__VU} sym: ${msg.data.sym} c: ${msg.data.c}`)
+          console.log(`VU ${__VU} sym: ${msg.data.sym} a: ${msg.data.a}`)
       });
-    socket.on('event', (data) => console.log('Message received: ', data));
+
     socket.setTimeout(function () {
       console.log('5 sec passed, closing the socket');
     socket.close();
