@@ -1,9 +1,9 @@
 import {
-	randomGuid,
+    randomGuid,
 } from '.././k6-websocket-poc/randomGuid.js';
 
 export const createTransac = {
-	"quote_id": randomGuid(),
+    "quote_id": randomGuid(),
     "instrument_id": "zipcard.ETH.SGD",
     "side": "sell",
     "amount":0.05,
