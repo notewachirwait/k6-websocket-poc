@@ -5,10 +5,12 @@ import {createTransac,depositBalance} from '../k6-websocket-poc/payload.js'
 import { Httpx } from 'https://jslib.k6.io/httpx/0.0.3/index.js';
   
 let sessionConfig = JSON.parse(open('../k6-websocket-poc/config.json'));
+
 export let options = {
   vus: 2,
   iterations: 2, 
 };
+
 function topUpbalance (){
   let session = new Httpx({baseURL: sessionConfig.api.urlAssetManager});
   session.addHeaders({
@@ -21,11 +23,11 @@ function topUpbalance (){
     console.log("Response: "+ body.data)
   });
 
-
   const status = res.pop();
   check(status, { 'status was 200': r => r.status == 200});
   sleep(1);
 }
+
 export default function createTransaction () {
   topUpbalance()
   group("createTransaction", function () {
